@@ -256,14 +256,16 @@
                             </h1>
                         </div>
                         <div class="row">
-                            <div class="span2 side-by-side clearfix">
-                               
+                            <div class="span3 side-by-side clearfix"> 
+                                <h3>Season <span class="theme-color">SPRING 2017</span></h3>
                             </div>
-                            <div class="span2 side-by-side clearfix">
+                            <div class="span1 side-by-side clearfix">
                                 
                             </div>
                             <div class="span3 side-by-side clearfix offset4">
-                              
+                                <h3>Feild <span class="theme-color"> Outdoors <a class="btn btn-warning btn-xs" href="#myMapModal" data-toggle="modal">
+                                                <span class="glyphicon glyphicon-map"></span>Map
+                                            </a></span></h3>
                             </div>
                             <div class="span1 side-by-side clearfix">
                                 
@@ -274,36 +276,63 @@
                                 <thead>
                                     <tr>
                                         <th id="table_id">Class ID
-                                        </th><th id="">Exam Name
-                                        </th><th id="">Department
-                                        </th><th id="">Program/Level
-                                        </th><th id="">Course
-                                        </th><th id="">Date Created
-                                        </th><th id="">Exam Date
-                                        </th><th id="">Status
+                                        </th><th id="">Age Group
+                                        </th><th id="">Day
+                                        </th><th id="">Date Range
+                                        </th><th id="">Time Slot
+                                        </th><th id="">Coaches
+                                        </th><th id="">Price
                                         </th><th class="td-actions" id="table_action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1.</td>
-                                        <td>Bachelor Entrance Exam 2070</td>
-                                        <td>Engineering</td>
-                                        <td>Bachelor</td>
-                                        <td>Test Course</td>
-                                        <td>2014-01-10</td>
-                                        <td>2014-06-14</td>
-                                        <td>Active</td>
+                                        <td>1714</td>
+                                        <td>3 to young 4</td>
+                                        <td>Sat</td>
+                                        <td>Sep 16 2017-Nov 4 2017</td>
+                                        <td>9:00AM-9:45AM</td>
+                                        <td>Tanyer Ahmed</td>
+                                        <td>$179.00</td>
                                         <td class="td-actions">
                                             <a class="btn btn-default btn-xs" href="">
-                                                <span class="glyphicon glyphicon-pencil"></span> Edit
+                                                <span class="glyphicon glyphicon-pencil"></span> Register now
                                             </a>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>1714</td>
+                                        <td>4 to young 5</td>
+                                        <td>Sat</td>
+                                        <td>Sep 16 2017-Nov 4 2017</td>
+                                        <td>9:00AM-9:45AM</td>
+                                        <td>Tanyer Ahmed</td>
+                                        <td>$179.00</td>
+                                        <td class="td-actions">
                                             <a class="btn btn-default btn-xs" href="">
-                                                <span class="glyphicon glyphicon-remove"></span> Remove
+                                                <span class="glyphicon glyphicon-pencil"></span> Register now
                                             </a>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>1714</td>
+                                        <td>6 to young 7</td>
+                                        <td>Sat</td>
+                                        <td>Sep 16 2017-Nov 4 2017</td>
+                                        <td>9:00AM-9:45AM</td>
+                                        <td>Tanyer Ahmed</td>
+                                        <td>$179.00</td>
+                                        <td class="td-actions">
                                             <a class="btn btn-default btn-xs" href="">
-                                                <span class="glyphicon glyphicon-search"></span> View
+                                                <span class="glyphicon glyphicon-pencil"></span> Register now
                                             </a>
+                                            
                                         </td>
                                     </tr>
                                 </tbody>
@@ -488,6 +517,35 @@
 </div>
 <!-- Wrapper -->
 
+    
+<!-- Map modal -->
+<div class="modal fade" id="myMapModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                 <h4 class="modal-title">Location</h4>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div id="map-canvas" class=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+    <!-- /.modal -->
+    
+<!-- Map modal -->
 <!-- Slide Menu -->
 <nav id="menu" class="responive-nav">
 	<a class="r-nav-logo" href="index.html"><img src="images/logo-1.png" alt=""></a>
@@ -695,8 +753,56 @@
 <script src="js/isotope.pkgd.js"></script>					 
 <script src="js/wow-min.js"></script>			
 <script src="js/classie.js"></script>					
-<script src="js/main.js"></script>		
+<script src="js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_N-ki_JDLNf_dJWhIQefCY0GbaZGJZV8&callback=initMap"
+    async defer></script>
+<script type="text/javascript"> 
+    var map;        
+            var myCenter=new google.maps.LatLng(53, -1.33);
+    var marker=new google.maps.Marker({
+        position:myCenter
+    });
 
+    function initialize() {
+      var mapProp = {
+          center:myCenter,
+          zoom: 14,
+          draggable: false,
+          scrollwheel: false,
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+      };
+
+      map=new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+      marker.setMap(map);
+
+      google.maps.event.addListener(marker, 'click', function() {
+
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+
+      }); 
+    };
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    google.maps.event.addDomListener(window, "resize", resizingMap());
+
+    $('#myMapModal').on('show.bs.modal', function() {
+       //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
+       resizeMap();
+    })
+
+    function resizeMap() {
+       if(typeof map =="undefined") return;
+       setTimeout( function(){resizingMap();} , 400);
+    }
+
+    function resizingMap() {
+       if(typeof map =="undefined") return;
+       var center = map.getCenter();
+       google.maps.event.trigger(map, "resize");
+       map.setCenter(center); 
+    }
+</script>
 
 <!-- Switcher JS -->
 <script type="text/javascript" src="switcher/cookie.js"></script>
