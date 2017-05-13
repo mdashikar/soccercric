@@ -1,0 +1,30 @@
+.login_modal{
+    text-align: right;
+    padding-top: 2%;
+}
+.login_modal a{
+    display: inline-block;
+}
+.blue-text{
+    color: dodgerblue;
+}
+#success_message{ display: none;}
+.breaker{
+   margin-top: 40px;
+}
+.child_info{
+    width: 200%;
+}
+.hide {
+  display: none;
+}
+
+div.loop {
+    display:none;
+}
+div.model_loop {
+    display:none;
+}
+.test{
+    padding: 2%;
+}
